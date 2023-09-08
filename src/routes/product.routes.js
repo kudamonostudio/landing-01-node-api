@@ -5,9 +5,8 @@ import {
   createProduct,
   updateProduct,
   deleteProduct,
-  deleteProductImage
+  deleteProductImage,
 } from "../controllers/products.controller.js";
-import fileUpload from "express-fileupload";
 
 const router = Router();
 
@@ -15,15 +14,9 @@ router.get("/products", getProducts);
 
 router.get("/products/:id", getOneProduct);
 
-router.post("/products", fileUpload({
-  useTempFiles: true,
-  tempFileDir: "./uploads",
-}) ,createProduct);
+router.post("/products", createProduct);
 
-router.put("/products/:id", fileUpload({
-  useTempFiles: true,
-  tempFileDir: "./uploads",
-}) ,updateProduct);
+router.put("/products/:id", updateProduct);
 
 router.delete("/products/:id", deleteProduct);
 
