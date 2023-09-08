@@ -1,9 +1,11 @@
-import { Router } from "express";
+import express from "express";
+const app = express();
 
-const router = Router();
+import productRoutes from './product.routes.js'
+import categoryRoutes from './category.routes.js'
 
-router.get("/", (req, res)=> {
-    res.send("Hello!")
-})
+app.use(productRoutes);
+app.use(categoryRoutes);
 
-export default router
+
+export default app

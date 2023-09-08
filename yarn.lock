@@ -253,6 +253,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"busboy@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "busboy@npm:1.6.0"
+  dependencies:
+    streamsearch: "npm:^1.1.0"
+  checksum: fa7e836a2b82699b6e074393428b91ae579d4f9e21f5ac468e1b459a244341d722d2d22d10920cdd849743dbece6dca11d72de939fb75a7448825cf2babfba1f
+  languageName: node
+  linkType: hard
+
 "bytes@npm:3.1.2":
   version: 3.1.2
   resolution: "bytes@npm:3.1.2"
@@ -323,6 +332,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cloudinary-core@npm:^2.13.0":
+  version: 2.13.0
+  resolution: "cloudinary-core@npm:2.13.0"
+  peerDependencies:
+    lodash: ">=4.0"
+  checksum: 183cc22ecf19d4430787f3de0a7a489ecdfe522021de3f636f9e01e040bcf6bb7d8bddbb6d551d67bd2d74587587f9c77d12214602e90fc1a70d454101bad20d
+  languageName: node
+  linkType: hard
+
+"cloudinary@npm:^1.40.0":
+  version: 1.40.0
+  resolution: "cloudinary@npm:1.40.0"
+  dependencies:
+    cloudinary-core: "npm:^2.13.0"
+    core-js: "npm:^3.30.1"
+    lodash: "npm:^4.17.21"
+    q: "npm:^1.5.1"
+  checksum: 171070521b8754d3a6ab80fe9839cf1feff013404a99ea92ed253d806d27b61e6bb1c08557d60ed5e3dda0abb1c38ace1d8e49dc15dac5d648fec62b7e21c828
+  languageName: node
+  linkType: hard
+
 "color-convert@npm:^2.0.1":
   version: 2.0.1
   resolution: "color-convert@npm:2.0.1"
@@ -389,6 +419,13 @@ __metadata:
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: c01ca3ef8d7b8187bae434434582288681273b5a9ed27521d4d7f9f7928fe0c920df0decd9f9d3bbd2d14ac432b8c8cf42b98b3bdd5bfe0e6edddeebebe8b61d
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^3.30.1":
+  version: 3.32.1
+  resolution: "core-js@npm:3.32.1"
+  checksum: 994ba8379331c8e1dcbd28dc4952208b629c2dec8b8fbb6104f85282c9dfd0b1f76f23ea42778ad7ef236626cc29e403562c6a0726004fd39eaf5c7d618f7fa2
   languageName: node
   linkType: hard
 
@@ -550,6 +587,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"express-fileupload@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "express-fileupload@npm:1.4.0"
+  dependencies:
+    busboy: "npm:^1.6.0"
+  checksum: fb98b7532c46fc336ef77ac58acdc7d137ec8c6dcfd3a425b1dbcde9988d6425edbc190da708b6ec4b2b5794a9cc50774332f4c1e25da4d5f6c3a6a993169a83
+  languageName: node
+  linkType: hard
+
 "express@npm:^4.18.2":
   version: 4.18.2
   resolution: "express@npm:4.18.2"
@@ -634,6 +680,17 @@ __metadata:
   version: 0.5.2
   resolution: "fresh@npm:0.5.2"
   checksum: c6d27f3ed86cc5b601404822f31c900dd165ba63fff8152a3ef714e2012e7535027063bc67ded4cb5b3a49fa596495d46cacd9f47d6328459cf570f08b7d9e5a
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:^11.1.1":
+  version: 11.1.1
+  resolution: "fs-extra@npm:11.1.1"
+  dependencies:
+    graceful-fs: "npm:^4.2.0"
+    jsonfile: "npm:^6.0.1"
+    universalify: "npm:^2.0.0"
+  checksum: a2480243d7dcfa7d723c5f5b24cf4eba02a6ccece208f1524a2fbde1c629492cfb9a59e4b6d04faff6fbdf71db9fdc8ef7f396417a02884195a625f5d8dc9427
   languageName: node
   linkType: hard
 
@@ -754,7 +811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.2.6":
+"graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.6":
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 386d011a553e02bc594ac2ca0bd6d9e4c22d7fa8cfbfc448a6d148c59ea881b092db9dbe3547ae4b88e55f1b01f7c4a2ecc53b310c042793e63aa44cf6c257f2
@@ -984,10 +1041,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jsonfile@npm:^6.0.1":
+  version: 6.1.0
+  resolution: "jsonfile@npm:6.1.0"
+  dependencies:
+    graceful-fs: "npm:^4.1.6"
+    universalify: "npm:^2.0.0"
+  dependenciesMeta:
+    graceful-fs:
+      optional: true
+  checksum: 4f95b5e8a5622b1e9e8f33c96b7ef3158122f595998114d1e7f03985649ea99cb3cd99ce1ed1831ae94c8c8543ab45ebd044207612f31a56fd08462140e46865
+  languageName: node
+  linkType: hard
+
 "kareem@npm:2.5.1":
   version: 2.5.1
   resolution: "kareem@npm:2.5.1"
   checksum: 30c6b9a39556d69108cac7cf7f87ca8c9f79d37ac58f2224e18d5e5b21191bbfbacee2070064f3c887bc00229d88b8bc728bcc98b07306edeaba85880f100b24
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
   languageName: node
   linkType: hard
 
@@ -1340,9 +1417,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "node-landing-api@workspace:."
   dependencies:
+    cloudinary: "npm:^1.40.0"
     cors: "npm:^2.8.5"
     dotenv: "npm:^16.3.1"
     express: "npm:^4.18.2"
+    express-fileupload: "npm:^1.4.0"
+    fs-extra: "npm:^11.1.1"
     mongoose: "npm:^7.4.5"
     morgan: "npm:^1.10.0"
     nodemon: "npm:^3.0.1"
@@ -1543,6 +1623,13 @@ __metadata:
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
   checksum: 8e6f7abdd3a6635820049e3731c623bbef3fedbf63bbc696b0d7237fdba4cefa069bc1fa62f2938b0fbae057550df7b5318f4a6bcece27f1907fc75c54160bee
+  languageName: node
+  linkType: hard
+
+"q@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "q@npm:1.5.1"
+  checksum: 7855fbdba126cb7e92ef3a16b47ba998c0786ec7fface236e3eb0135b65df36429d91a86b1fff3ab0927b4ac4ee88a2c44527c7c3b8e2a37efbec9fe34803df4
   languageName: node
   linkType: hard
 
@@ -1810,6 +1897,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"streamsearch@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "streamsearch@npm:1.1.0"
+  checksum: fbd9aecc2621364384d157f7e59426f4bfd385e8b424b5aaa79c83a6f5a1c8fd2e4e3289e95de1eb3511cb96bb333d6281a9919fafce760e4edb35b2cd2facab
+  languageName: node
+  linkType: hard
+
 "string-width-cjs@npm:string-width@^4.2.0, string-width@npm:^1.0.2 || 2 || 3 || 4, string-width@npm:^4.1.0, string-width@npm:^4.2.3":
   version: 4.2.3
   resolution: "string-width@npm:4.2.3"
@@ -1950,6 +2044,13 @@ __metadata:
   dependencies:
     imurmurhash: "npm:^0.1.4"
   checksum: cb811d9d54eb5821b81b18205750be84cb015c20a4a44280794e915f5a0a70223ce39066781a354e872df3572e8155c228f43ff0cce94c7cbf4da2cc7cbdd635
+  languageName: node
+  linkType: hard
+
+"universalify@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "universalify@npm:2.0.0"
+  checksum: 07092b9f46df61b823d8ab5e57f0ee5120c178b39609a95e4a15a98c42f6b0b8e834e66fbb47ff92831786193be42f1fd36347169b88ce8639d0f9670af24a71
   languageName: node
   linkType: hard
 
