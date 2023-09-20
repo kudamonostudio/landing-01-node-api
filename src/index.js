@@ -5,7 +5,7 @@ import { PORT } from "./config/environment.js";
 async function main() {
   await connectToDB();
   app.listen(PORT);
-  console.log(`port running ${process.env.PORT}`);
+  console.log(`port running ${PORT}`);
 }
 
 main()
