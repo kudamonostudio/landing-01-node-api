@@ -3,8 +3,18 @@ import { deleteImage, uploadImage } from "../config/cloudinary.js";
 import fs from "fs-extra";
 
 export const getProducts = async (req, res) => {
+  const { limit, sort, category, brand } = req.query;
+
+  let products;
   try {
-    const products = await Product.find();
+    if (category || brand) {
+      products = await Product.find({ category, brand })
+        .limit(limit)
+        .sort(sort);
+    } else {
+      products = await Product.find().limit(limit).sort(sort);
+    }
+
     res.json(products);
   } catch (error) {
     return res.status(500).json({ error: "Error getting products" });
@@ -28,13 +38,14 @@ export const getOneProduct = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, description, price, category } = req.body;
+    const { name, description, price, category, stock } = req.body;
 
     const product = new Product({
       name,
       description,
       price,
       category,
+      stock,
     });
 
     if (req.files?.images) {
