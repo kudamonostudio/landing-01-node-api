@@ -3,8 +3,9 @@ import { deleteImage, uploadImage } from "../config/cloudinary.js";
 import fs from "fs-extra";
 
 export const getCategories = async (req, res) => {
+  const { limit } = req.query;
   try {
-    const category = await Category.find();
+    const category = await Category.find().limit(limit);
     res.json(category);
   } catch (error) {
     return res.status(500).json({ error: "Error getting category" });
@@ -28,11 +29,12 @@ export const getOneCategory = async (req, res) => {
 
 export const createCategory = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, description } = req.body;
     const image = req.files?.image;
 
     const category = new Category({
       name,
+      description,
     });
 
     if (image) {

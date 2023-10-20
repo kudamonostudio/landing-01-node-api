@@ -63,7 +63,7 @@ export const updateCover = async (req, res) => {
 
       const uploadedImage = await uploadImage(
         imageToSave.tempFilePath,
-        "categories"
+        "cover"
       );
       await fs.unlink(imageToSave.tempFilePath);
 
@@ -101,7 +101,6 @@ export const deleteCover = async (req, res) => {
 
     await deleteImage(public_id);
     await Cover.findByIdAndDelete(id);
-    console.log(public_id);
     return res.json(cover);
   } catch (error) {
     return res.status(500).json({ error: "Error getting cover" });
