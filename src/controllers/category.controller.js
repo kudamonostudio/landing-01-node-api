@@ -3,8 +3,9 @@ import { deleteImage, uploadImage } from "../config/cloudinary.js";
 import fs from "fs-extra";
 
 export const getCategories = async (req, res) => {
+  const { limit } = req.query;
   try {
-    const category = await Category.find();
+    const category = await Category.find().limit(limit);
     res.json(category);
   } catch (error) {
     return res.status(500).json({ error: "Error getting category" });
@@ -15,7 +16,7 @@ export const getOneCategory = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const category = await category.findById(id);
+    const category = await Category.findById(id);
     if (!category) {
       return res.status(400).json({ message: "category doesn't exist" });
     }
@@ -28,15 +29,16 @@ export const getOneCategory = async (req, res) => {
 
 export const createCategory = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, description } = req.body;
     const image = req.files?.image;
 
     const category = new Category({
       name,
+      description,
     });
 
     if (image) {
-      const uploadedImage = await uploadImage(image.tempFilePath, "category");
+      const uploadedImage = await uploadImage(image.tempFilePath, "categories");
       await fs.unlink(image.tempFilePath);
       category.image = {
         public_id: uploadedImage.public_id,
@@ -96,14 +98,20 @@ export const deleteCategory = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const category = await Category.findByIdAndDelete(id);
+    const category = await Category.findById(id);
 
     if (!category) {
       return res.status(400).json({ message: "category doesn't exist" });
     }
 
+    if (category.image.length) {
+      await deleteImage(category.image.public_id);
+    }
+
+    await Category.findByIdAndDelete(id);
+
     return res.json(category);
   } catch (error) {
-    return res.status(500).json({ error: "Error getting category" });
+    return res.status(500).json(error);
   }
 };
