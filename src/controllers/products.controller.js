@@ -3,14 +3,14 @@ import { deleteImage, uploadImage } from "../config/cloudinary.js";
 import fs from "fs-extra";
 
 export const getProducts = async (req, res) => {
-  const { limit, sort, category, brand } = req.query;
-
+  const { limit, sort, filter, filterValue} = req.query;
   let products;
+  let filterBy = {};
+  console.log(filterBy);
+  filterBy[filter] = filterValue
   try {
-    if (category || brand) {
-      products = await Product.find({ category, brand })
-        .limit(limit)
-        .sort(sort);
+    if (filter || filterValue) {
+      products = await Product.find(filterBy).limit(limit).sort(sort);
     } else {
       products = await Product.find().limit(limit).sort(sort);
     }
